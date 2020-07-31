@@ -18,4 +18,5 @@ public abstract class ViewBindingActivity<VM extends ViewBinding> extends Bindin
     }
 
 
+
 }
