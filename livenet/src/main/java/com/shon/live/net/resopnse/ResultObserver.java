@@ -1,11 +1,11 @@
-package com.shon.mvvm.net.resopnse;
+package com.shon.live.net.resopnse;
 
 import androidx.lifecycle.Observer;
 
 /**
  * Auth : xiao_yun_fei
  * Date : 2020/7/26 19:40
- * Package name : com.shon.mvvm.net.resopnse
+ * Package name : com.shon.live.net.resopnse
  * Des :
  */
 public abstract class ResultObserver<T> implements Observer<ApiResponse<T>> {

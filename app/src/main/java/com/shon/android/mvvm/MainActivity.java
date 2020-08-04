@@ -2,15 +2,14 @@ package com.shon.android.mvvm;
 
 import android.os.Bundle;
 
-import com.shon.android.mvvm.databinding.ActivityMainBinding;
-import com.shon.mvvm.base.activity.ViewBindingActivity;
+import androidx.annotation.Nullable;
 
-public class MainActivity extends ViewBindingActivity<ActivityMainBinding> {
+import com.shon.android.mvvm.databinding.ActivityMainBinding;
+import com.shon.mvvm.base.ui.BaseBindingActivity;
+
+public class MainActivity extends BaseBindingActivity<ActivityMainBinding> {
 
     @Override
-    protected void onProcess(Bundle savedInstanceState) {
-
+    public void onProcess(@Nullable Bundle savedInstanceState) {
     }
-
-
 }

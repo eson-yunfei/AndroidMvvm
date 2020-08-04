@@ -3,10 +3,10 @@ package com.shon.android.mvvm;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.shon.android.mvvm.databinding.ActivityMainBinding;
-import com.shon.mvvm.base.activity.IViewBinding;
+import com.shon.mvvm.base.imp.ICreate;
+import com.shon.mvvm.base.ui.BaseBindingActivity;
 
 /**
  * Auth : xiao_yun_fei
@@ -14,11 +14,11 @@ import com.shon.mvvm.base.activity.IViewBinding;
  * Package name : com.shon.android.mvvm
  * Des :
  */
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends BaseBindingActivity<ActivityMainBinding> {
+
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        ActivityMainBinding activityMainBinding = ActivityMainBinding.inflate()
+    public void onProcess(@Nullable Bundle savedInstanceState) {
+
     }
 }

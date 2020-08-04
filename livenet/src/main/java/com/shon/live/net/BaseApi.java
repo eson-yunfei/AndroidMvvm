@@ -1,6 +1,6 @@
-package com.shon.mvvm.net;
+package com.shon.live.net;
 
-import com.shon.mvvm.net.resopnse.LiveDataCallAdapterFactory;
+import com.shon.live.net.resopnse.LiveDataCallAdapterFactory;
 
 import java.util.concurrent.TimeUnit;
 

@@ -3,8 +3,8 @@ package com.shon.android.mvvm.api;
 import androidx.lifecycle.Observer;
 
 import com.shon.mvvm.net.BaseApi;
-import com.shon.mvvm.net.resopnse.ApiResponse;
-import com.shon.mvvm.net.resopnse.ResultObserver;
+import com.shon.live.net.resopnse.ApiResponse;
+import com.shon.live.net.resopnse.ResultObserver;
 
 /**
  * Auth : xiao_yun_fei

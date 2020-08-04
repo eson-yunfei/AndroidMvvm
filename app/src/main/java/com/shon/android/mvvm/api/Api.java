@@ -2,7 +2,7 @@ package com.shon.android.mvvm.api;
 
 import androidx.lifecycle.LiveData;
 
-import com.shon.mvvm.net.resopnse.ApiResponse;
+import com.shon.live.net.resopnse.ApiResponse;
 
 /**
  * Auth : xiao_yun_fei
