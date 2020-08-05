@@ -21,18 +21,30 @@ import com.shon.mvvm.base.imp.ICreate;
  * Des :
  */
 public abstract class BaseBindingFragment<Binding> extends Fragment implements ICreate {
+
     protected Binding binding;
+
+    @SuppressWarnings("unchecked")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (getLayoutID() == 0) {
-            binding = BindingUtil.createBinding(this);
+            binding = BindingUtil.createBinding(this, inflater, container);
             return (((ViewBinding) binding).getRoot());
         } else {
-            binding = (Binding) DataBindingUtil.inflate(inflater,getLayoutID(),container,false);
+
+            binding = (Binding) DataBindingUtil.inflate(inflater, getLayoutID(), container, false);
             return (((ViewDataBinding) binding).getRoot());
         }
 
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initViewState();
+        initViewListener();
+        onProcess(savedInstanceState);
     }
 
     @Override
