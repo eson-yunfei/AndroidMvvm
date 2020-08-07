@@ -12,7 +12,22 @@ import com.shon.mvvm.base.ui.BaseBindingActivity;
  * Package name : com.shon.android.mvvm.Base2
  * Des :
  */
-public class Base2Activity<V,ViewModel> extends BaseBindingActivity<V> {
+public abstract class Base2Activity<V,VM extends BaseViewModel> extends BaseBindingActivity<V> {
+    protected  VM viewModel;
+
+    @Override
+    public void initViewState() {
+        super.initViewState();
+        viewModel = getViewModels();
+        if (viewModel != null){
+            viewModel.attach(binding);
+        }
+    }
+
+    protected VM getViewModels() {
+        return null;
+    }
+
     @Override
     public void onProcess(@Nullable Bundle savedInstanceState) {
 

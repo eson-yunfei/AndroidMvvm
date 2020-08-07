@@ -1,9 +1,7 @@
-package com.shon.mvvm.base.imp;
+package com.shon.mvvm.base.imp
 
-import android.os.Bundle;
-
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
+import android.os.Bundle
+import androidx.annotation.LayoutRes
 
 /**
  * Auth : xiao_yun_fei
@@ -11,30 +9,27 @@ import androidx.annotation.Nullable;
  * Package name : com.shon.mvvm.base.activity
  * Des :
  */
-public interface ICreate {
-
+interface ICreate {
     /**
      * 返回页面 布局的 Layout id
      * @return @LayoutRes id
      */
-    @LayoutRes int getLayoutID();
+    @get:LayoutRes
+    val layoutID: Int
 
     /**
      * 初始化 view 的状态，例如 显示、 隐藏、等
      */
-    void initViewState();
+    fun initViewState()
 
     /**
      * 设置 view 的 监听事件， 例如 点击、长按、选择、输入监听等
      */
-    void initViewListener();
-
+    fun initViewListener()
 
     /**
      * 其他的操作，
      * @param savedInstanceState savedInstanceState
      */
-    void onProcess(@Nullable Bundle savedInstanceState);
-
-
+    fun onProcess(savedInstanceState: Bundle?)
 }

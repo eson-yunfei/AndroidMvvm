@@ -1,6 +1,7 @@
 package com.shon.android.mvvm;
 
-import androidx.lifecycle.ViewModel;
+import com.shon.android.mvvm.Base2.BaseViewModel;
+import com.shon.android.mvvm.databinding.ActivityMainBinding;
 
 /**
  * Auth : xiao_yun_fei
@@ -8,5 +9,10 @@ import androidx.lifecycle.ViewModel;
  * Package name : com.shon.android.mvvm
  * Des :
  */
-public class MyViewModel extends ViewModel {
+public class MyViewModel extends BaseViewModel<ActivityMainBinding> {
+
+    @Override
+    public void attach(ActivityMainBinding activityMainBinding) {
+//        activityMainBinding.text.setOnClickListener();
+    }
 }

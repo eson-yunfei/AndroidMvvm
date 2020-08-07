@@ -1,4 +1,4 @@
-package com.shon.mvvm.base.imp;
+package com.shon.mvvm.base.imp
 
 /**
  * Auth : xiao_yun_fei
@@ -6,15 +6,14 @@ package com.shon.mvvm.base.imp;
  * Package name : com.shon.mvvm.base.activity
  * Des :
  */
-public interface IActivityCreate extends ICreate {
-
+interface IActivityCreate : ICreate {
     /**
      * 在Activity 的 super 之前调用，需要用到时，请重写此方法
      */
-    void onPreSuperCreate();
+    fun onPreSuperCreate()
 
     /**
      * 在Activity的 super 之后调用， 在 setContentView 之前调用
      */
-    void onPreSetContentView();
+    fun onPreSetContentView()
 }
