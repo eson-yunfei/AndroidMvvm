@@ -1,4 +1,4 @@
-//include ':livenet'
+include ':net'//include ':livenet'
 include ':mvvm'
 include ':app'
 rootProject.name = "AndroidMvvm"

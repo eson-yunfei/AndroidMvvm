@@ -86,16 +86,12 @@ internal object BindingUtil {
      * @param <Binding> Binding
      * @return Binding
     </Binding> */
-    private fun <Binding> createViewBinding(viewBindingClass: Class<out ViewBinding>?,
-                                            layoutInflater: LayoutInflater,
-                                            container: ViewGroup?): Binding? {
-        try {
-            val method = viewBindingClass!!.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.javaPrimitiveType)
-            val viewBinding = method.invoke(viewBindingClass, layoutInflater, container, false) as ViewBinding
-            return viewBinding as Binding
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return null
+    fun <Binding> createViewBinding(viewBindingClass: Class<out ViewBinding>?,
+                                    layoutInflater: LayoutInflater,
+                                    container: ViewGroup?): Binding? {
+        val method = viewBindingClass!!.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.javaPrimitiveType)
+        val viewBinding = method.invoke(viewBindingClass, layoutInflater, container, false) as ViewBinding
+        return viewBinding as Binding
+
     }
 }

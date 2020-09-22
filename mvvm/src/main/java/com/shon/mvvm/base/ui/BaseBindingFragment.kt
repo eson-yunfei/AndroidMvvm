@@ -17,16 +17,21 @@ import com.shon.mvvm.base.imp.ICreate
  * Des :
  */
 abstract class BaseBindingFragment<Binding> : Fragment(), ICreate {
-    @JvmField
     protected var binding: Binding? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return if (layoutID == 0) {
+
             binding = BindingUtil.createBinding(this, inflater, container)
             (binding as ViewBinding?)!!.root
         } else {
             binding = DataBindingUtil.inflate<ViewDataBinding>(inflater, layoutID, container, false) as Binding
             (binding as ViewDataBinding?)!!.root
         }
+
+
+
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,4 +47,6 @@ abstract class BaseBindingFragment<Binding> : Fragment(), ICreate {
     override fun initViewState() {}
     override fun initViewListener() {}
     override fun onProcess(savedInstanceState: Bundle?) {}
+
+    private inline fun<reified T:Any?> T.findClass()= T::class.java
 }
