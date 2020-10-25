@@ -50,10 +50,15 @@ internal object BindingUtil {
      */
     private fun findViewBinding(`object`: Any): Class<out ViewBinding>? {
         val type = `object`.javaClass.genericSuperclass ?: return null
-        val types = (type as ParameterizedType).actualTypeArguments
-        return if (types.isEmpty()) {
+        return if (type is ParameterizedType){
+            val types = type.actualTypeArguments
+            if (types.isEmpty()) {
+                null
+            } else types[0] as Class<out ViewBinding>
+        }else{
             null
-        } else types[0] as Class<out ViewBinding>
+        }
+
     }
 
     /**
