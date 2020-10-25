@@ -17,6 +17,8 @@ import com.shon.mvvm.base.imp.ICreate
  * Des :
  */
 abstract class BaseBindingFragment<Binding> : Fragment(), ICreate {
+
+    @JvmField
     protected var binding: Binding? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return if (layoutID == 0) {
