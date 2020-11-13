@@ -22,18 +22,18 @@ abstract class BaseBindingFragment<Binding> : Fragment(), ICreate {
     protected var binding: Binding? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return if (layoutID == 0) {
-
             binding = BindingUtil.createBinding(this, inflater, container)
-            (binding as ViewBinding?)!!.root
+            binding?.let {
+                (it as ViewBinding?)!!.root
+            }
+
         } else {
             binding = DataBindingUtil.inflate<ViewDataBinding>(inflater, layoutID, container, false) as Binding
-            (binding as ViewDataBinding?)!!.root
+            binding?.let {
+                (it as ViewDataBinding?)!!.root
+            }
+
         }
-
-
-
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,5 +50,4 @@ abstract class BaseBindingFragment<Binding> : Fragment(), ICreate {
     override fun initViewListener() {}
     override fun onProcess(savedInstanceState: Bundle?) {}
 
-    private inline fun<reified T:Any?> T.findClass()= T::class.java
 }

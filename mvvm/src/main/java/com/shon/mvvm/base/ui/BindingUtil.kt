@@ -24,6 +24,7 @@ internal object BindingUtil {
     fun <Binding> createBinding(appCompatActivity: AppCompatActivity): Binding? {
         val layoutInflater = appCompatActivity.layoutInflater
         val viewBindClass = findViewBinding(appCompatActivity)
+        viewBindClass?:return null
         return createViewBinding(viewBindClass, layoutInflater)
     }
 
@@ -39,6 +40,7 @@ internal object BindingUtil {
     fun <Binding> createBinding(fragment: Fragment, inflater: LayoutInflater,
                                 container: ViewGroup?): Binding? {
         val viewBinding = findViewBinding(fragment)
+        viewBinding?:return null
         return createViewBinding(viewBinding, inflater, container)
     }
 
@@ -91,7 +93,7 @@ internal object BindingUtil {
      * @param <Binding> Binding
      * @return Binding
     </Binding> */
-    fun <Binding> createViewBinding(viewBindingClass: Class<out ViewBinding>?,
+    private fun <Binding> createViewBinding(viewBindingClass: Class<out ViewBinding>?,
                                     layoutInflater: LayoutInflater,
                                     container: ViewGroup?): Binding? {
         val method = viewBindingClass!!.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.javaPrimitiveType)

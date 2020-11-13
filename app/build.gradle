@@ -18,10 +18,7 @@ android {
             dataBinding = true
             viewBinding = true
         }
-        //使用生成文件
-        kapt {
-            generateStubs = true
-        }
+
     }
 
 
