@@ -11,7 +11,7 @@ import com.shon.mvvm.GetObjects
  * @Date 2022-09-01 16:18
  *
  */
-interface ViewModelInterface<VM : BaseViewModel> {
+internal interface ViewModelInterface<VM : BaseViewModel> {
 
     fun onAttachView(lifecycleOwner: LifecycleOwner, factory: ViewModelProvider.Factory): VM {
 

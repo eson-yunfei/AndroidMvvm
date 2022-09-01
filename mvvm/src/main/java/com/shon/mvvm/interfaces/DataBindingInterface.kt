@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
  * @Date 2022-09-01 16:19
  *
  */
-interface DataBindingInterface<DB : ViewDataBinding> {
+internal interface DataBindingInterface<DB : ViewDataBinding> {
     fun createDataBinding(activity: AppCompatActivity): DB {
         val dataBinding: DB = DataBindingUtil.setContentView(activity, getDataBindingLayoutId())
         dataBinding.lifecycleOwner = activity

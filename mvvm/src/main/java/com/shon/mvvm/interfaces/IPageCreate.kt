@@ -6,7 +6,7 @@ package com.shon.mvvm.interfaces
  * @Date 2022-09-01 17:00
  *
  */
-interface IPageCreate {
+internal interface IPageCreate {
 
     fun onPreCreateView(){}
 

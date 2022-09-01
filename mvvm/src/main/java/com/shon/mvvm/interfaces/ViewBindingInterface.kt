@@ -10,7 +10,7 @@ import com.shon.mvvm.GetObjects
  * @Date 2022-09-01 16:19
  *
  */
-interface ViewBindingInterface<VB : ViewBinding> {
+internal interface ViewBindingInterface<VB : ViewBinding> {
 
     fun createViewBinding(inflater: LayoutInflater): VB {
         return GetObjects.getVBInstance(this, inflater)
