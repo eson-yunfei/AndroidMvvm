@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.shon.mvvm.BindingUtil
 import com.shon.mvvm.base.imp.ICreate
 
 /**

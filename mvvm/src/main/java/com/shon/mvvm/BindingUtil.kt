@@ -1,4 +1,4 @@
-package com.shon.mvvm.base.ui
+package com.shon.mvvm
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

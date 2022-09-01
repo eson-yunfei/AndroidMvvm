@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.viewbinding.ViewBinding
+import com.shon.mvvm.BindingUtil
 import com.shon.mvvm.base.imp.IActivityCreate
 
 /**

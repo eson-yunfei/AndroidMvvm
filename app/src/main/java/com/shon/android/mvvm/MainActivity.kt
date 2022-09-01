@@ -1,18 +1,23 @@
 package com.shon.android.mvvm
 
-import android.annotation.SuppressLint
-import android.os.Bundle
-import com.shon.android.mvvm.Base2.Base2Activity
+import android.util.Log
 import com.shon.android.mvvm.databinding.ActivityMainBinding
-import com.shon.android.mvvm.databinding.DatabindLaytBinding
+import com.shon.mvvm.BaseViewModel
+import com.shon.mvvm.activity.BaseVmDbActivity
 
-class MainActivity : Base2Activity<DatabindLaytBinding?, MyViewModel?>() {
-    @SuppressLint("SetTextI18n")
-    override fun onProcess(savedInstanceState: Bundle?) {
-//        binding!!.text.text = "111111111"
+class MainActivity : BaseVmDbActivity<BaseViewModel,ActivityMainBinding>(){
+
+     class ClickProxy{
+
+        fun onSingeExtent(){
+            Log.d("MainActivity", "onSingeExtent: ")
+        }
     }
 
-
-    override val layoutID: Int
-        get() = R.layout.databind_layt
+    override fun onInitData() {
+        dataBinding.mainModel = ClickProxy()
+    }
+    override fun getDataBindingLayoutId(): Int {
+        return R.layout.activity_main
+    }
 }

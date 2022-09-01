@@ -3,22 +3,23 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 32
-    buildToolsVersion "30.0.3 "
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion 20
         targetSdkVersion 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-        buildFeatures{
-            dataBinding = true
-            viewBinding = true
-        }
+
     }
 
+    buildFeatures{
+        //noinspection DataBindingWithoutKapt
+        dataBinding = true
+        viewBinding  true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -28,14 +29,18 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.core:core-ktx:1.7.0'
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.4.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation "androidx.core:core-ktx:1.7.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //noinspection GradleDependency
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.7.10'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+    // ViewModel
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
 
 }

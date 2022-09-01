@@ -18,6 +18,6 @@ class TestFragment extends BaseBindingFragment<ActivityMainBinding> {
     @Override
     public void onProcess(@Nullable Bundle savedInstanceState) {
         super.onProcess(savedInstanceState);
-        binding.text.setText("11111111");
+//        binding.text.setText("11111111");
     }
 }
