@@ -39,3 +39,14 @@ fun String?.isEmail(): Boolean {
         false
     }
 }
+
+/**
+ * 将字符串中的连续的多个换行缩减成一个换行
+ * @return    返回的结果
+ */
+fun String.replaceLineBlanks(): String {
+    val p = Pattern.compile("(\r?\n(\\s*\r?\n)+)");
+    val m: Matcher = p.matcher(this);
+    val result = m.replaceAll("\r\n");
+    return result
+}
