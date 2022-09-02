@@ -47,5 +47,6 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     //noinspection GradleDependency
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10"
-
+//    implementation 'com.github.eson-yunfei:AndroidMvvm:mvvm:1.0.1'
+//    implementation 'com.github.eson-yunfei:AndroidMvvm:scaffold:1.0.1'
 }

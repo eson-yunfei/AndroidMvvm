@@ -2,7 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
-group='com.github.xyf'
+group='com.github.eson-yunfei'
 
 android {
     compileSdk 32
