@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+group='com.github.xyf'
 
 android {
     compileSdkVersion 32
