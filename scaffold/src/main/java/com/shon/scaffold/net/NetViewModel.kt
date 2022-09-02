@@ -8,7 +8,7 @@ import com.shon.mvvm.BaseViewModel
  * @Date 2022-09-02 11:53
  *
  */
-open class NetViewModel : BaseViewModel() {
+open class NetViewModel : BaseViewModel(), NetRequest {
 
 
 }
