@@ -1,7 +1,7 @@
 package com.shon.android.mvvm.viewmodels
 
-import com.shon.android.net.Request
-import com.shon.scaffold.net.NetViewModel
+import com.shon.android.net.response.ArticleBean
+import com.shon.android.net.viewmodel.NetRefreshLoadMoreViewModel
 
 /**
  *
@@ -9,13 +9,33 @@ import com.shon.scaffold.net.NetViewModel
  * @Date 2022-09-01 17:15
  *
  */
-class MainViewModel : NetViewModel() {
+class MainViewModel : NetRefreshLoadMoreViewModel<ArticleBean>() {
 
-    fun loadHomeArticleBean() {
+    private var currentPage: Int = 0
+
+    fun startRefreshData() {
+        currentPage = 0
+        loadHomeArticleBean {
+            refreshLiveData.postValue(it)
+        }
+    }
+
+    fun startLoadMoreData() {
+        loadHomeArticleBean {
+            loadMoreLiveData.postValue(it)
+        }
+
+    }
+
+    override fun upgradePageIndex() {
+        currentPage += 1
+    }
+
+    private fun loadHomeArticleBean(data: (MutableList<ArticleBean>) -> Unit) {
         requestData({
-            Request.getAPI().articleList()
+            getAPI().articleList(currentPage)
         }, {
-
+            data.invoke(it?.datas ?: mutableListOf())
         })
     }
 }

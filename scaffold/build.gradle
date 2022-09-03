@@ -15,6 +15,12 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+    buildFeatures{
+        //noinspection DataBindingWithoutKapt
+        dataBinding = true
+        viewBinding  true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -61,6 +67,6 @@ dependencies {
     api 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6'
     //gson
     api 'com.google.code.gson:gson:2.9.1'
-    implementation "com.github.eson-yunfei.Android_Utils:slog:0.2.0"
+    api "com.github.eson-yunfei.Android_Utils:slog:0.2.0"
 
 }

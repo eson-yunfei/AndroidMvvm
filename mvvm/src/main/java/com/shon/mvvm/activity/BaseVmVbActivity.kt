@@ -13,7 +13,7 @@ import com.shon.mvvm.interfaces.ViewBindingInterface
 open class BaseVmVbActivity<VM : BaseViewModel, VB : ViewBinding> : BaseVmActivity<VM>(),
     ViewBindingInterface<VB> {
 
-    lateinit var viewBinding: ViewBinding
+    lateinit var viewBinding: VB
     override fun onInitView() {
         viewBinding = createViewBinding(layoutInflater)
         setContentView(viewBinding.root)

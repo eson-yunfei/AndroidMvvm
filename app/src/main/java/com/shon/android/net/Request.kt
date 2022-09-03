@@ -1,6 +1,7 @@
 package com.shon.android.net
 
 import com.shon.scaffold.net.BaseNetRequest
+import okhttp3.logging.HttpLoggingInterceptor
 
 /**
  *
@@ -8,7 +9,7 @@ import com.shon.scaffold.net.BaseNetRequest
  * @Date 2022-09-02 17:31
  *
  */
-class Request:BaseNetRequest<NetApi>("https://www.wanandroid.com") {
+class Request:BaseNetRequest<NetApi>("https://www.wanandroid.com/") {
 
     companion object{
 
@@ -19,5 +20,9 @@ class Request:BaseNetRequest<NetApi>("https://www.wanandroid.com") {
     }
     override fun enableSSL(): Boolean {
         return true
+    }
+
+    override fun setHttpLoggingInterceptor(httpLoggingInterceptor: HttpLoggingInterceptor) {
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
     }
 }

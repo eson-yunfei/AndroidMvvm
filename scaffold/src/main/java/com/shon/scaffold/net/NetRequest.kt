@@ -11,7 +11,9 @@ import kotlinx.coroutines.*
  * @Date 2022-09-02 15:01
  *
  */
-interface NetRequest {
+interface NetRequest<API> {
+
+    fun getAPI(): API
     fun <T> requestData(
         block: suspend () -> NetResponse<T>,
         onResponse: (T?) -> Unit,
@@ -20,7 +22,9 @@ interface NetRequest {
     ) {
         launchRequestOnIO(block, timeDelay, onShowLoading, onRequestSuccess = {
             if (it.isResponseSuccess()) {
-                onResponse.invoke(it.getResponseData())
+                MainScope().launch {
+                    onResponse.invoke(it.getResponseData())
+                }
             }
         }) {
 
@@ -34,7 +38,9 @@ interface NetRequest {
         onShowLoading: () -> Unit = {}
     ) {
         launchRequestOnIO(block, timeDelay, onShowLoading, onRequestSuccess = {
-            onResponse.invoke(it.isResponseSuccess())
+            MainScope().launch {
+                onResponse.invoke(it.isResponseSuccess())
+            }
         }) {
 
         }

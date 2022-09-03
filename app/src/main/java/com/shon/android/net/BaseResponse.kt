@@ -11,7 +11,7 @@ import com.shon.scaffold.net.response.NetResponse
 data class BaseResponse<T>(val data: T, val errorCode: Int, val errorMsg: String) :
     NetResponse<T>() {
     override fun isResponseSuccess(): Boolean {
-        return errorCode == 200
+        return errorCode == 0
     }
 
     override fun getResponseCode(): Int {

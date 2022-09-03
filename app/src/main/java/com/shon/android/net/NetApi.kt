@@ -3,6 +3,7 @@ package com.shon.android.net
 import com.shon.android.net.response.ArticleBean
 import com.shon.android.net.response.PageBean
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 /**
  *
@@ -12,6 +13,6 @@ import retrofit2.http.GET
  */
 interface NetApi {
 
-    @GET("article/list/0/json")
-    suspend fun articleList(): BaseResponse<PageBean<ArticleBean>>
+    @GET("article/list/{index}/json")
+    suspend fun articleList(@Path("index") index: Int = 0): BaseResponse<PageBean<ArticleBean>>
 }

@@ -28,7 +28,7 @@ fun RecyclerView.setGradeLayout(
     return setLayout(mAdapter, layoutManagerSetting.invoke())
 }
 
-private fun RecyclerView.setLayout(
+fun RecyclerView.setLayout(
     mAdapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>,
     mLayoutManager: RecyclerView.LayoutManager
 ): RecyclerView {

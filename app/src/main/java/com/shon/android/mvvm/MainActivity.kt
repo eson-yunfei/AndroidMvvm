@@ -1,27 +1,26 @@
 package com.shon.android.mvvm
 
-import android.content.Intent
-import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.shon.android.mvvm.adapter.ArticleAdapter
 import com.shon.android.mvvm.databinding.ActivityMainBinding
 import com.shon.android.mvvm.viewmodels.MainViewModel
-import com.shon.mvvm.BaseViewModel
-import com.shon.mvvm.activity.BaseVmDbActivity
+import com.shon.mvvm.activity.BaseVmVbActivity
+import com.shon.scaffold.refresh.initLayoutWithViewModel
 
-class MainActivity : BaseVmDbActivity<MainViewModel, ActivityMainBinding>() {
+class MainActivity : BaseVmVbActivity<MainViewModel, ActivityMainBinding>() {
+
+    protected val articleAdapter: ArticleAdapter = ArticleAdapter(mutableListOf())
+    override fun onInitListener() {
+        viewBinding.listLayout.initLayoutWithViewModel(
+            viewModel, articleAdapter,
+            LinearLayoutManager(this), {
+                viewModel.startRefreshData()
+            }, {
+                viewModel.startLoadMoreData()
+            })
+    }
 
     override fun onInitData() {
-        dataBinding.mainModel = ClickProxy()
-    }
-
-    override fun getDataBindingLayoutId(): Int {
-        return R.layout.activity_main
-    }
-
-
-    internal class ClickProxy {
-
-        fun onSingeExtent(view:View) {
-            view.context.startActivity(Intent(view.context,ViewBindingActivity::class.java))
-        }
+        viewBinding.listLayout.smartRefreshLayout.autoRefresh(100)
     }
 }
