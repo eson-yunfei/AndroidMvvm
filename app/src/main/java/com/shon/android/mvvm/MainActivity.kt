@@ -5,13 +5,14 @@ import com.shon.android.mvvm.adapter.ArticleAdapter
 import com.shon.android.mvvm.databinding.ActivityMainBinding
 import com.shon.android.mvvm.viewmodels.MainViewModel
 import com.shon.mvvm.activity.BaseVmVbActivity
+import com.shon.scaffold.adapter.itemDoubleClick
 import com.shon.scaffold.refresh.initLayoutWithViewModel
 
 class MainActivity : BaseVmVbActivity<MainViewModel, ActivityMainBinding>() {
 
     private val articleAdapter: ArticleAdapter = ArticleAdapter(mutableListOf())
 
-    override fun onInitListener() {
+    override fun onInitView() {
         viewBinding.listLayout.initLayoutWithViewModel(
             viewModel, articleAdapter,
             LinearLayoutManager(this), {
@@ -19,6 +20,12 @@ class MainActivity : BaseVmVbActivity<MainViewModel, ActivityMainBinding>() {
             }, {
                 viewModel.startLoadMoreData()
             })
+    }
+    override fun onInitListener() {
+
+        articleAdapter.itemDoubleClick { item, position ->
+
+        }
     }
 
     override fun onInitData() {
