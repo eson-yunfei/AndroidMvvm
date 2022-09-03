@@ -9,7 +9,8 @@ import com.shon.scaffold.refresh.initLayoutWithViewModel
 
 class MainActivity : BaseVmVbActivity<MainViewModel, ActivityMainBinding>() {
 
-    protected val articleAdapter: ArticleAdapter = ArticleAdapter(mutableListOf())
+    private val articleAdapter: ArticleAdapter = ArticleAdapter(mutableListOf())
+
     override fun onInitListener() {
         viewBinding.listLayout.initLayoutWithViewModel(
             viewModel, articleAdapter,
@@ -22,5 +23,13 @@ class MainActivity : BaseVmVbActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun onInitData() {
         viewBinding.listLayout.smartRefreshLayout.autoRefresh(100)
+    }
+
+    override fun transparentStatusBar(): Boolean {
+        return true
+    }
+
+    override fun darkStatusBar(): Boolean {
+        return true
     }
 }

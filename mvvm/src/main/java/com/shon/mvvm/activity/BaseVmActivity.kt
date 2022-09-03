@@ -1,10 +1,12 @@
 package com.shon.mvvm.activity
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.shon.mvvm.BaseViewModel
 import com.shon.mvvm.interfaces.IPageCreate
 import com.shon.mvvm.interfaces.ViewModelInterface
+import com.shon.mvvm.statubar.StatusBarLifeCycle
 
 /**
  *
@@ -13,11 +15,12 @@ import com.shon.mvvm.interfaces.ViewModelInterface
  *
  */
 open class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity(), ViewModelInterface<VM>,
-    IPageCreate {
+    IPageCreate ,StatusBarLifeCycle{
     lateinit var viewModel: VM
     override fun onCreate(savedInstanceState: Bundle?) {
         onPreCreateView()
-        super.onCreate(savedInstanceState)
+        super<AppCompatActivity>.onCreate(savedInstanceState)
+        lifecycle.addObserver(this)
         viewModel = onAttachView(this, defaultViewModelProviderFactory)
         onInitView()
         onInitListener()
@@ -31,6 +34,10 @@ open class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity(), ViewModelIn
     }
 
     override fun onInitData() {
+    }
+
+    override fun getActivity(): Activity {
+        return this
     }
 
 }
