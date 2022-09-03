@@ -16,7 +16,7 @@ import androidx.core.view.ViewCompat
  * @Author xiao
  * @Data 2022-09-03 12:15
  */
-object StatusBarCompat {
+internal object StatusBarCompat {
 
     @Suppress("DEPRECATION")
     fun translucentStatusBar(activity: Activity, hideStatusBarBackground: Boolean) {

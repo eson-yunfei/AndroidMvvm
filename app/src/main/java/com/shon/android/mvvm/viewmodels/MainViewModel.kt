@@ -36,6 +36,8 @@ class MainViewModel : NetRefreshLoadMoreViewModel<ArticleBean>() {
             getAPI().articleList(currentPage)
         }, {
             data.invoke(it?.datas ?: mutableListOf())
+        }, onError = {
+
         })
     }
 }

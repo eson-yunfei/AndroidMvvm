@@ -24,7 +24,7 @@ fun SmartRefreshLayout.setLoadMoreListener(loadMore: () -> Unit) {
     }
 }
 
-fun SmartRefreshLayout.setAllListener(refresh: () -> Unit = {}, loadMore: () -> Unit = {}) {
+fun SmartRefreshLayout.setAllListener(refresh: () -> Unit, loadMore: () -> Unit) {
     this.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
         override fun onRefresh(refreshLayout: RefreshLayout) {
             refresh.invoke()

@@ -14,36 +14,39 @@ import kotlinx.coroutines.*
 interface NetRequest<API> {
 
     fun getAPI(): API
+
     fun <T> requestData(
         block: suspend () -> NetResponse<T>,
         onResponse: (T?) -> Unit,
         timeDelay: Long = 500L,
-        onShowLoading: () -> Unit = {}
+        onShowLoading: () -> Unit = {},
+        onError: (String?) -> Unit
     ) {
         launchRequestOnIO(block, timeDelay, onShowLoading, onRequestSuccess = {
             if (it.isResponseSuccess()) {
                 MainScope().launch {
                     onResponse.invoke(it.getResponseData())
                 }
+            }else{
+                onError.invoke(it.getResponseMsg())
             }
-        }) {
-
-        }
+        },{
+            onError.invoke(it.message)
+        })
     }
 
     fun requestBoolean(
         block: suspend () -> NetResponse<Any>,
         onResponse: (Boolean?) -> Unit,
         timeDelay: Long = 500L,
-        onShowLoading: () -> Unit = {}
+        onShowLoading: () -> Unit = {},
+        onError: (NetError) -> Unit
     ) {
         launchRequestOnIO(block, timeDelay, onShowLoading, onRequestSuccess = {
             MainScope().launch {
                 onResponse.invoke(it.isResponseSuccess())
             }
-        }) {
-
-        }
+        },onError)
     }
 
 
