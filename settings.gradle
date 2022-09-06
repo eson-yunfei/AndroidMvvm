@@ -3,3 +3,4 @@ include ':app'
 rootProject.name = "AndroidMvvm"
 include ':scaffold'
 include ':picture'
+include ':web'
