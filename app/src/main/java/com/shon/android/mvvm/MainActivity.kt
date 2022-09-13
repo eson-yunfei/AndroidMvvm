@@ -14,6 +14,7 @@ class MainActivity : BaseVmVbActivity<MainViewModel, ActivityMainBinding>() {
 
     val testImageUrl: String =
         "https://c-ssl.duitang.com/uploads/item/201710/17/20171017215814_fwPMQ.jpeg"
+
     override fun onInitView() {
         super.onInitView()
 
@@ -31,12 +32,14 @@ class MainActivity : BaseVmVbActivity<MainViewModel, ActivityMainBinding>() {
 
         articleAdapter.itemDoubleClick { item, _ ->
 //            logD("item click  position = $position")
-           ArticleDetailActivity.showArticleDetail(this,item.link)
+            ArticleDetailActivity.showArticleDetail(this, item.link)
         }
     }
 
     override fun onInitData() {
         viewBinding.listLayout.smartRefreshLayout.autoRefresh(100)
+
+
     }
 
     override fun transparentStatusBar(): Boolean {
